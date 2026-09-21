@@ -6,7 +6,7 @@
     <title>“如果可以，真想天天都见面！”</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",serif;}
+        *{margin:0;padding:0;box-sizing:border-box;}
         body{
             background: url("xgcbbb.jpg") no-repeat center center;
             background-size: cover;
@@ -25,8 +25,20 @@
         }
         .container{max-width:800px;margin:0 auto;position:relative;z-index:1;}
         header{text-align:center;margin-bottom:50px;}
-        h1{font-weight:normal;letter-spacing:3px;color:#222;}
-        .desc{margin-top:12px;color:#666;font-size:15px;}
+        /* 主标题 YouFanwokuangchi：Times New Roman，白色 */
+        h1{
+            font-weight:normal;
+            letter-spacing:3px;
+            color:#ffffff;
+            font-family:"Times New Roman",serif;
+        }
+        /* 副标题 大家吃好喝好：微软雅黑，白色 */
+        .desc{
+            margin-top:12px;
+            color:#ffffff;
+            font-size:15px;
+            font-family:"Microsoft YaHei",sans-serif;
+        }
         .article-item{
             background:#fff;
             padding:24px;
@@ -39,7 +51,11 @@
             display:inline-block;background:#e9ecef;padding:3px 10px;border-radius:20px;font-size:13px;color:#555;margin-bottom:16px;
         }
         .article-intro{color:#555;line-height:1.6;margin-bottom:20px;}
-        .article-content{line-height:1.8;}
+        /* 故事正文：宋体 */
+        .article-content{
+            line-height:1.8;
+            font-family:"SimSun",serif;
+        }
         .article-content p{margin-bottom:12px;}
     </style>
 </head>
@@ -51,7 +67,6 @@
             <h1>YouFanwokuangchi</h1>
             <p class="desc">大家吃好喝好</p>
         </header>
-
         <div class="article-item">
             <h2 class="article-title">《我叫Pooh》</h2>
             <span class="article-tag">《小狗才不笨笨》番外一</span>
@@ -59,7 +74,6 @@
             <div class="article-content" id="story"></div>
         </div>
     </div>
-
 <script>
 // ============【在这里写你的小故事！！】============
 // 直接打字，回车换行就是新段落，不用任何标签！
