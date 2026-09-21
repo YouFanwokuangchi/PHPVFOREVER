@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《小狗才不笨笨》番外一之我叫Pooh</title>
+    <title>“如果可以，真想天天都见面！”</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",serif;}
         body{background:#f7f5f2;color:#333;padding:40px 20px;position:relative;min-height:100vh;}
@@ -26,15 +27,13 @@
             margin-bottom:20px;
             box-shadow:0 2px 8px rgba(0,0,0,0.06);
         }
-        .article-title{font-size:20px;margin-bottom:8px;}
+        .article-title{font-size:24px;margin-bottom:12px;}
         .article-tag{
-            display:inline-block;background:#e9ecef;padding:3px 10px;border-radius:20px;font-size:13px;color:#555;margin-bottom:10px;
+            display:inline-block;background:#e9ecef;padding:3px 10px;border-radius:20px;font-size:13px;color:#555;margin-bottom:16px;
         }
-        .article-intro{color:#555;line-height:1.6;}
-        .article-content{margin-top:16px;line-height:1.8;display:none;}
-        .toggle-btn{
-            margin-top:14px;border:none;background:none;color:#6b7280;cursor:pointer;font-size:14px;
-        }
+        .article-intro{color:#555;line-height:1.6;margin-bottom:20px;}
+        .article-content{line-height:1.8;}
+        .article-content p{margin-bottom:12px;}
     </style>
 </head>
 <body>
@@ -43,16 +42,22 @@
     <div class="container">
         <header>
             <h1>YouFanwokuangchi</h1>
-            <p class="desc">请大家吃好喝好</p>
+            <p class="desc">大家吃好喝好</p>
         </header>
 
-      <!-- 随笔，全文直接展示，无按钮 -->
         <div class="article-item">
             <h2 class="article-title">《我叫Pooh》</h2>
             <span class="article-tag">《小狗才不笨笨》番外一</span>
-            <p class="article-intro">傍晚的风慢慢凉下来，坐在窗边看落日，心里安静了许多。</p>
-            <div class="article-content">
-       <p>1.
+            <p class="article-intro"></p>
+            <div class="article-content" id="story"></div>
+        </div>
+    </div>
+
+<script>
+// ============【在这里写你的小故事！！】============
+// 直接打字，回车换行就是新段落，不用任何标签！
+const storyMarkdown = `
+　　1.
 
 　　我今天有了人类的名字！
 
@@ -519,14 +524,12 @@
 　　我是Pavel的小狗！！！Pavel那么好那么好！！！我是他的小狗啦！！！
 
 　　我猜你们都很为我高兴！对吧？
+`;
+// ==============================================
 
-       -tbc-<p>
+// 将markdown转成网页正文
+document.getElementById('story').innerHTML = marked.parse(storyMarkdown);
 
-            </div>
-        </div>
-    </div>
-
-    <script>
         // 水印生成代码
         function createWatermark(text="YouFanwokuangchi"){
             const watermarkDom = document.getElementById('watermark');
@@ -541,7 +544,7 @@
             watermarkDom.style.backgroundImage = `url(${canvas.toDataURL()})`;
         }
         createWatermark("YouFanwokuangchi");
-       // 防删除水印监听
+        // 防删除水印监听
         const observer = new MutationObserver(()=>{
             if(!document.getElementById("watermark")){
                 const wm = document.createElement("div");
@@ -551,6 +554,6 @@
             }
         });
         observer.observe(document.body,{childList:true,subtree:true});
-    </script>
+</script>
 </body>
 </html>
